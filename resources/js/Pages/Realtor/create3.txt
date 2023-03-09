@@ -1,0 +1,19 @@
+<template>
+  <RealtorShow :kader="kader" />
+</template>
+
+<script>
+import RealtorShow from '@/Pages/Realtor/Index/Components/RealtorShow.vue'
+
+export default {
+  components: {
+    RealtorShow
+  },
+  data() {
+    return {
+      kader: [1, 2, 3] // Passer un tableau comme props 'kader'
+    }
+  }
+}
+</script>
+

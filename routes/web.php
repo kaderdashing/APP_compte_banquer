@@ -23,10 +23,10 @@ Route::get('/hello', [IndexController::class, 'show'])
   ->middleware('auth');
 
 Route::resource('listing', ListingController::class)
-  ->only(['index', 'show']);
+  ->only(['index', 'show' , 'create']);
 
 
-  Route::get('Realtor/Index/Components/RealtorShow', [ListingController::class, 'fethi']);
+ // Route::get('Realtor/create', [ListingController::class, 'fethi']);
 
 Route::get('login', [AuthController::class, 'create'])
   ->name('login');

@@ -1,4 +1,12 @@
 <template>
+<div class="flex justify-center items-center">
+  <div class="mb-5">
+    <p>les dépenses actives pour le <span class="text-purple-600">{{ date }} </span></p>
+  </div>
+</div>
+
+
+
   <form @submit.prevent="create">
     <div class="grid grid-cols-8 gap-4">
   <div class="col-span-8 flex justify-center items-center">
@@ -17,28 +25,27 @@
 
     <div class="col-span-1 md:col-span-1"></div> <!-- Ajout d'un espace pour les petits écrans -->
 
-    <div class="col-span-1 md:col-span-1">
+    <div class="col-span-2">
       <label class="block mb-1 ml-25 text-gray-500 dark:text-gray-300 font-medium">Montant</label>
-      <input v-model.number="form.baths" type="text" class="block w-full p-2 rounded-md shadow-sm border border-gray-300 dark:border-gray-600 text-gray-500" />
-      <div v-if="form.errors.baths" class="input-error">
-        {{ form.errors.baths }}
+      <input v-model.number="form.price" type="text" class="block w-full p-2 rounded-md shadow-sm border border-gray-300 dark:border-gray-600 text-gray-500" />
+      <div v-if="form.errors.price" class="input-error">
+        {{ form.errors.price }}
       </div>
     </div>
 
-    <div class="col-span-1 md:col-span-3"></div> <!-- Ajout d'un espace pour les petits écrans -->
+    <div class="col-span-1 md:col-span-1"></div> <!-- Ajout d'un espace pour les petits écrans -->
 
-    <div class="col-span-2 md:col-span-3">
+    <div class="col-span-2 md:col-span-4">
       <label class="block mb-1 text-gray-500 dark:text-gray-300 font-medium">comment</label>
-      <input v-model.number="form.area" type="text" class="block w-full  rounded-md shadow-sm border border-gray-300 dark:border-gray-600 text-gray-500" />
+      <input v-model.number="form.area" type="text" class="block w-full p-2 rounded-md shadow-sm border border-gray-300 dark:border-gray-600 text-gray-500" />
       <div v-if="form.errors.area" class="input-error">
         {{ form.errors.area }}
       </div>
     </div>
 
-        <div class="col-span-2 md:col-span-2  mt-7 ml-1">
-          <button type="submit" class="btn-normal">EDIT</button>
-        </div>
+
   </div>
+
 
 
       
@@ -51,36 +58,52 @@
 
 
 
+  <div class="col-span-2 md:col-span-2 mt-7 ml-1">
+      <button type="submit" class="btn-normal">EDIT</button>
+    </div>
 
 
 
-
-
+    <RealtorShow :kader="kader"  />
 </template>
 
 <script setup>
+import RealtorShow from '@/Pages/Realtor/Index/Components/RealtorShow.vue'
 import { ref } from 'vue'
 
 import { useForm } from '@inertiajs/inertia-vue3'
-
+defineProps({
+  kader: Object,
+})
 const form = useForm({
   beds: 0,
-  baths: 0,
+
   area: 0,
-  city: null,
-  street: null,
-  code: null,
-  street_nr: null,
+
   price: 0,
 })
 const create = () => form.post(route('realtor.listing.store'))
 
 
-
-
 </script>
 
+<script>
+export default {
+  data() {
+    return {
+      date: '' ,
+    };
+  },
+  mounted() {
+    let currentDate = new Date();
+    let jour = currentDate.getDate();
+    let mois = currentDate.getMonth() + 1;
+    let annee = currentDate.getFullYear();
 
+    this.date = jour + '/' + mois + '/' + annee;
+  }
+};
+</script>
 
 <style scoped>
 

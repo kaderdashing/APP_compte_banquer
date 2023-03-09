@@ -35,11 +35,11 @@ class ListingController extends Controller
             ]
         );
     }
-
-    public function fethi()
+    public function Create()
     {
-        return inertia('Realtor/Index/Components/RealtorShow', [
-            'kader' => Listing::all()
+        return inertia(
+            'Realtor/Create', [
+            'kader' => [1, 2, 3] // Passer un tableau
         ]);
     }
     
