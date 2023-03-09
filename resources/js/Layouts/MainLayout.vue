@@ -17,8 +17,9 @@
 
 
   <div v-if="user" class="flex flex-row items-center justify-around gap-4 mt-5" >
+    <Link :href="route('realtor.listing.create')" class="btn-primary">dépenses</Link>
   <Link class="text-sm text-gray-500" :href="route('realtor.listing.index')"> statistiques </Link>
-  <Link :href="route('realtor.listing.create')" class="btn-primary">dépenses</Link>
+  
   <div>
     <Link :href="route('logout')" method="delete" as="button">portefeuille</Link>
   </div>
