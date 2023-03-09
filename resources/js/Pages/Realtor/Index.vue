@@ -3,6 +3,7 @@
 
   <section>
     <RealtorFilters :filters="filters" />
+    <RealtorShow  />
   </section>
 
   <section class="grid grid-cols-1 lg:grid-cols-2 gap-2">
@@ -59,6 +60,8 @@ import Price from '@/Components/Price.vue'
 import Box from '@/Components/UI/Box.vue'
 import Pagination from '@/Components/UI/Pagination.vue'
 import RealtorFilters from '@/Pages/Realtor/Index/Components/RealtorFilters.vue'
+import RealtorShow from '@/Pages/Realtor/Index/Components/RealtorShow.vue'
+
 import { Link } from '@inertiajs/inertia-vue3'
 
 defineProps({

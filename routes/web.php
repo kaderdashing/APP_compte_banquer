@@ -25,6 +25,9 @@ Route::get('/hello', [IndexController::class, 'show'])
 Route::resource('listing', ListingController::class)
   ->only(['index', 'show']);
 
+
+  Route::get('Realtor/Index/Components/RealtorShow', [ListingController::class, 'fethi']);
+
 Route::get('login', [AuthController::class, 'create'])
   ->name('login');
 Route::post('login', [AuthController::class, 'store'])

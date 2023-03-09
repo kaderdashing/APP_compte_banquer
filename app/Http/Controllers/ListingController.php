@@ -36,6 +36,15 @@ class ListingController extends Controller
         );
     }
 
+    public function fethi()
+    {
+        return inertia('Realtor/Index/Components/RealtorShow', [
+            'kader' => Listing::all()
+        ]);
+    }
+    
+    
+
     /**
      * Display the specified resource.
      *
