@@ -23,11 +23,11 @@ Route::get('/hello', [IndexController::class, 'show'])
   ->middleware('auth');
 
 Route::resource('listing', ListingController::class)
-  ->only(['index', 'show' , 'create']);
+  ->only(['index', 'show' ]);
 
 
- // Route::get('Realtor/create', [ListingController::class, 'fethi']);
-
+  //Route::get('realtor/index/components/realtorshow', [ListingController::class, 'fethi']);
+  Route::get('realtor/index/components/create', [ListingController::class, 'fethi'])->name('realtor.index.components.create');
 Route::get('login', [AuthController::class, 'create'])
   ->name('login');
 Route::post('login', [AuthController::class, 'store'])
