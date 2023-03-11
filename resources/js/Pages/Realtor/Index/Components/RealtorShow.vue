@@ -1,20 +1,16 @@
 <template>
-<div :class="{ 'aqua-bg': isLightMode }" class="ma-div w-full">    <div class="container mx-auto px-4">
+  <div :class="{ 'aqua-bg': isLightMode }" class="ma-div w-full">    
+    <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 ">
         <div v-for="(item, index) in kader" :key="item.id" :class="index === 0 ? 'mt-4 first-item' : 'other-items'" class="bg-white  shadow-md rounded-lg flex justify-between items-center p-4 border-gray-300 ">
           <div>
-            <h2 class="text-xl font-semibold text-green-600">{{ item.city }}</h2>
+            <h2 class="text-xl font-semibold text-green-600">{{ item.nom }}</h2>
           </div>
-          <div>
-            <p class="text-xl font-semibold">{{ item.price }} DA</p>
-          </div>
-          <div>            
-            <div class="col-span-2 md:col-span-2 ">
-                </div>
-                <img src="../images/my-image.png" alt="Mon image" class="inline-block align-middle w-6 h-6" />
-            </div>
+          <div class="flex items-center">
+            <p class="text-xl font-semibold mr-5">{{ item.prix }} DA</p>
+            <img src="../images/my-image.png" alt="Mon image" class="inline-block align-middle w-6 h-6" />
            
-
+          </div>
         </div>
       </div>
     </div>

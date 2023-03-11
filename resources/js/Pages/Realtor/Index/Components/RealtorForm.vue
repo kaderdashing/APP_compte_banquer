@@ -61,8 +61,8 @@
 
     <div class="flex ml-10 ">
       
-        <button type="submit" class="btn-primary mb-5 p-15  text-lg h-12 w-48">Create</button>
-      
+        <button type="submit" class="btn-primary mb-5 p-15  text-lg h-12 w-48 bg-teal-500 hover:bg-teal-400">Create</button>
+
     </div>
   </div>
 </form>

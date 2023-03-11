@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Listing;
+use App\Models\Depenses;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -39,10 +40,9 @@ class ListingController extends Controller
     {
         return inertia(
             'Realtor/Index/Components/Create', [
-            'kader' => Listing::all()
+            'kader' => Depenses::orderBy('created_at', 'desc')->get()
         ]);
     }
-    
     
 
     /**
