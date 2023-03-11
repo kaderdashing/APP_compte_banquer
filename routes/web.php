@@ -1,11 +1,12 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\DepenseController;
 use App\Http\Controllers\ListingController;
-use App\Http\Controllers\RealtorListingController;
 use App\Http\Controllers\UserAccountController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RealtorListingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,3 +52,5 @@ Route::prefix('realtor')
       ->only(['index', 'destroy', 'edit', 'update', 'create', 'store'])
       ->withTrashed();
   });
+//----------------------------------------------------------------------------------------------------------
+route::resource('depenses',DepenseController::class) ;

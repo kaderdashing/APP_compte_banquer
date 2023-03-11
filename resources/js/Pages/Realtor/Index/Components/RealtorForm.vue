@@ -27,13 +27,13 @@
       <div class="col-span-2">
         <label class="label">type</label>
         <div class="col-span-1">
-          <select v-model.number="form.beds" class="input-filter-l w-22" placeholder="Choisir">
-            <option value="created_at">flexy</option>
-            <option value="price">tabac</option>
+          <select v-model="form.nom" class="input-filter-l w-22" placeholder="Choisir">
+            <option value="flixy">flexy</option>
+            <option value="tabac">tabac</option>
           </select>
         </div>
-        <div v-if="form.errors.beds" class="input-error">
-          {{ form.errors.beds }}
+        <div v-if="form.errors.nom" class="input-error">
+          {{ form.errors.nom }}
         </div>
       </div>
 
@@ -41,9 +41,10 @@
 
       <div class="col-span-2">
         <label class="block mb-1 ml-25 text-gray-500 dark:text-gray-300 font-medium">Montant</label>
-        <input v-model.number="form.price" type="text" class="block w-full p-2 rounded-md shadow-sm border border-gray-300 dark:border-gray-600 text-gray-500" />
-        <div v-if="form.errors.price" class="input-error">
-          {{ form.errors.price }}
+        <input v-model.number="form.prix" type="text" class="block w-full p-2 rounded-md shadow-sm border border-gray-300 dark:border-gray-600 text-gray-500" />
+        <div v-if="form.errors.prix" class="input-error">
+          
+          {{ form.errors.prix }}
         </div>
       </div>
 
@@ -51,9 +52,9 @@
 
       <div class="col-span-2 md:col-span-4">
         <label class="block mb-1 text-gray-500 dark:text-gray-300 font-medium">comment</label>
-        <input v-model.number="form.area" type="text" class="block w-full p-2 rounded-md shadow-sm border border-gray-300 dark:border-gray-600 text-gray-500" />
-        <div v-if="form.errors.area" class="input-error">
-          {{ form.errors.area }}
+        <input v-model="form.commentaire" type="text" class="block w-full p-2 rounded-md shadow-sm border border-gray-300 dark:border-gray-600 text-gray-500" />
+        <div v-if="form.errors.commentaire" class="input-error">
+          {{ form.errors.commentaire }}
         </div>
       </div>
     </div>
@@ -83,13 +84,13 @@
       kader: Object,
     })
     const form = useForm({
-      beds: 0,
+      nom: null,
     
-      area: "flixy du mois",
+      commentaire: null,
     
-      price: 1000,
+      prix: null,
     })
-    const create = () => form.post(route('realtor.listing.store'))
+    const create = () => form.post(route('depenses.store'))
     
     
     </script>
