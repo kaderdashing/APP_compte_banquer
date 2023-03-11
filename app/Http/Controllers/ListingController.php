@@ -38,10 +38,15 @@ class ListingController extends Controller
     }
     public function fethi()
     {
+        $user_id = auth()->id();
+        
         return inertia(
             'Realtor/Index/Components/Create', [
-            'kader' => Depenses::orderBy('created_at', 'desc')->get()
-        ]);
+                'kader' => Depenses::where('user_id', $user_id)
+                    ->whereDate('created_at', today())
+                    ->orderBy('created_at', 'desc')
+                    ->get()
+            ]);
     }
     
 

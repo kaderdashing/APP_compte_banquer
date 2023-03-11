@@ -15,7 +15,7 @@ class DepenseController extends Controller
      */
     public function index()
     {
-        //
+        // remplacer par la function fethi() dans le Listing Controller 
     }
 
     /**

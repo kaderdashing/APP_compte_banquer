@@ -30,6 +30,7 @@
           <select v-model="form.nom" class="input-filter-l w-22" placeholder="Choisir">
             <option value="flixy">flexy</option>
             <option value="tabac">tabac</option>
+            <option value="bouché">bouché</option>
           </select>
         </div>
         <div v-if="form.errors.nom" class="input-error">
