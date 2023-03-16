@@ -1,8 +1,9 @@
 <template>
   <div>
     
-    <realtorForm />
+    <realtorForm  :user="user" />
     <RealtorShow :kader="kader" />
+    
   </div>
 </template>
 
@@ -21,10 +22,14 @@ export default {
     kader: {
       type: Array,
       required: true
+    } ,
+    user: {
+      type: Number,
+      required: true
     }
   },
   mounted() {
-    console.log('kader value is:', this.kader);
+   // console.log('user solde value is:', this.user);
   }
 }
 </script>

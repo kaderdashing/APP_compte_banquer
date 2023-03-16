@@ -6,7 +6,7 @@
 
             <div class="inline-block shadow-lg px-15 border-dotted">
   <div class="inline-block text-center font-bold text-gray-500 text-xl ml-2 text-shadow-lg ml-5">SOLDE:</div>
-  <div class="inline-block text-center font-bold text-green-500 text-xl ml-2 text-shadow-lg mr-5">50 200 DA</div>
+  <div class="inline-block text-center font-bold text-green-500 text-xl ml-2 text-shadow-lg mr-5">{{user}} DA</div>
 </div>
 
 
@@ -83,6 +83,7 @@
     import { useForm } from '@inertiajs/inertia-vue3'
     defineProps({
       kader: Object,
+      user:Number ,
     })
     const form = useForm({
       nom: null,
@@ -98,6 +99,7 @@
     
     <script>
     export default {
+      
       data() {
         return {
           date: '' ,

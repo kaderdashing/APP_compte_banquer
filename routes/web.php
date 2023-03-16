@@ -28,7 +28,6 @@ Route::resource('listing', ListingController::class)
 
 
   //Route::get('realtor/index/components/realtorshow', [ListingController::class, 'fethi']);
-  Route::get('realtor/index/components/create', [ListingController::class, 'fethi'])->name('realtor.index.components.create');
 Route::get('login', [AuthController::class, 'create'])
   ->name('login');
 Route::post('login', [AuthController::class, 'store'])
@@ -54,3 +53,7 @@ Route::prefix('realtor')
   });
 //----------------------------------------------------------------------------------------------------------
 route::resource('depenses',DepenseController::class) ;
+//route::get('solde',[ListingController::class, 'solde'])->name('realtor.solde');
+
+//Route::get('realtor/index/components/create', [ListingController::class, 'solde'])->name('realtor.index.components.create');
+Route::get('realtor/index/components/create', [ListingController::class, 'fethi'])->name('realtor.index.components.create');

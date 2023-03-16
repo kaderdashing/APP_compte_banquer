@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Listing;
 use App\Models\Depenses;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -45,10 +46,21 @@ class ListingController extends Controller
                 'kader' => Depenses::where('user_id', $user_id)
                     ->whereDate('created_at', today())
                     ->orderBy('created_at', 'desc')
-                    ->get()
+                    ->get() ,
+                    'user' => Auth::user()->solde
+
             ]);
-    }
-    
+    } 
+
+   /* public function solde()
+    {
+        
+        return inertia(
+            'Realtor/Index/Components/Create', [
+                'user' => Auth::user()->solde
+            ]);
+    } 
+    */
 
     /**
      * Display the specified resource.
