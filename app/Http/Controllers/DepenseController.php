@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Depenses;
+use App\Models\User;
+use App\Models\Categorie;
 //use Inertia\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class DepenseController extends Controller
 {
@@ -15,7 +19,24 @@ class DepenseController extends Controller
      */
     public function index()
     {
-        // remplacer par la function fethi() dans le Listing Controller 
+        $user_id = auth()->id();
+
+
+
+        //les categorie du user connecter 
+        $userCategories = Auth::user()->categories()->pluck('id')->all();
+    
+    
+        // j'ai recuperer les depenses paraport au categorie 
+        $expenses = Depenses::whereIn('categorie_id', $userCategories)->orderBy('categorie_id')->get(); 
+   
+        return inertia(
+            'Realtor/Index/Components/Create', [
+                'expenses' => $expenses,
+                'userCategories' =>$userCategories
+
+            ]);
+        
     }
 
     /**

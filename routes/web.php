@@ -54,6 +54,7 @@ Route::prefix('realtor')
   });
 //----------------------------------------------------------------------------------------------------------
 route::resource('depenses',DepenseController::class) ;
+
 //route::get('solde',[ListingController::class, 'solde'])->name('realtor.solde');
 
 //Route::get('realtor/index/components/create', [ListingController::class, 'solde'])->name('realtor.index.components.create');

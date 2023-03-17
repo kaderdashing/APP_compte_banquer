@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Depenses;
 use App\Models\Categorie;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Hash;
@@ -65,8 +66,10 @@ class User extends Authenticatable
 
 
 
-    public function Categories() :HasMany
+    public function categories() 
     {
         return $this->hasMany(Categorie::class);
     }
+
+
 }

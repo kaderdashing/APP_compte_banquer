@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('nom');
             $table->integer('prix');
             $table->string('commentaire')->nullable();
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('categorie_id')->nullable();
+            $table->foreign('categorie_id')->references('id')->on('categories');
             $table->timestamps();
         });
     }
