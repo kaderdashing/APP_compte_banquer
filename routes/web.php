@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\DepenseController;
 use App\Http\Controllers\ListingController;
+use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\UserAccountController;
 use App\Http\Controllers\RealtorListingController;
 
@@ -56,4 +57,4 @@ route::resource('depenses',DepenseController::class) ;
 //route::get('solde',[ListingController::class, 'solde'])->name('realtor.solde');
 
 //Route::get('realtor/index/components/create', [ListingController::class, 'solde'])->name('realtor.index.components.create');
-Route::get('realtor/index/components/create', [ListingController::class, 'fethi'])->name('realtor.index.components.create');
+Route::get('realtor/index/components/create', [CategorieController::class, 'fethi'])->name('realtor.index.components.create');
