@@ -88,9 +88,9 @@ class DepenseController extends Controller
  * @param  \App\Models\Depenses  $depenses
  * @return \Illuminate\Http\Response
  */
-    public function edit(Depenses $depenses)
+    public function edit(Depenses $depenses ,$id)
     {
-        //
+        dd($id);
     }
 
     /**
