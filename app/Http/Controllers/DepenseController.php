@@ -24,14 +24,15 @@ class DepenseController extends Controller
 
 
         //les categorie du user connecter 
-        $userCategories = Auth::user()->categories()->pluck('id')->all();
+        $userCategories = Auth::user()->categories()->pluck('id','name')->all();
     
-    
+  
         // j'ai recuperer les depenses paraport au categorie 
-        $expenses = Depenses::whereIn('categorie_id', $userCategories)->orderBy('categorie_id')->get(); 
-   
+        $expenses = DB::table('depenses')->whereIn('categorie_id', $userCategories)->orderBy('categorie_id')->get()->all();
+     //  $expenses = Depenses::whereIn('categorie_id', $userCategories)->orderBy('categorie_id')->get(); 
+ 
         return inertia(
-            'Realtor/Index/Components/Create', [
+            'Realtor/Index/Components/Show', [
                 'expenses' => $expenses,
                 'userCategories' =>$userCategories
 

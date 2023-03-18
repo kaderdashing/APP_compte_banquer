@@ -1,0 +1,18 @@
+<template>
+  <div>
+    <h2>Catégories utilisateur:</h2>
+    <ul>
+      <li v-for="(value, category) in userCategories" :key="category">
+        {{ category }}
+      </li>
+    </ul>
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    userCategories: Object
+  }
+};
+</script>
