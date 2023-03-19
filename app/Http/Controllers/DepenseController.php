@@ -90,9 +90,54 @@ class DepenseController extends Controller
  */
     public function edit(Depenses $depenses ,$id)
     {
-        dd($id);
+        //ici on essai de récupérer les depenses d'aujourd'hui pour toutes les categories 
+        // on a pas encore specifier pour le user_id
+        $dateAujourdhui = date('Y-m-d');
+        $depenses = Depenses::whereDate('created_at', $dateAujourdhui)
+                             ->select('categorie_id', DB::raw('SUM(prix) as sommePrix'))
+                             ->groupBy('categorie_id')
+                             ->get();
+    
+        $sommeParCategorie = [];
+    
+        foreach ($depenses as $depense) {
+            $sommeParCategorie[$depense->categorie_id] = $depense->sommePrix;
+        }
+    
+         dd($sommeParCategorie);
     }
 
+
+//ici on récupére les depense pour une categorie specifique
+
+/*
+
+    public function edit(Depenses $depenses ,$id)
+    {
+        $depenses = Depenses::where('categorie_id', $id)
+        ->select('nom', 'categorie_id', 'prix')
+        ->get();
+    //    $sommePrix = $depenses->sum('prix');
+    $dateAujourdhui = date('Y-m-d');
+    $sommePrixAujourdhui = Depenses::whereDate('created_at', $dateAujourdhui)
+                                   ->sum('prix');
+
+        dd($sommePrixAujourdhui);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
     /**
      * Update the specified resource in storage.
      *
