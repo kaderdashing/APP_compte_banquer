@@ -115,8 +115,14 @@ class DepenseController extends Controller
        // l'intersection entre les categorie du user auth et les categorie modifier aujourd'hui
        //ca donne les categories pour le user modifier aujourd'hui   
        $intersect=  array_intersect($categories_auth,$categories_modifier);
+        // changer entre le prix et le key value
+       $kader=array_flip($sommeParCategorie) ;
+       // récuperer seulement les depenses faite aujourd'hui
+       $final= array_intersect($kader,$intersect) ;
+       // valeur a retourner 
        
-         dd($intersect) ;
+       $ToReturn =array_flip($final) ;
+       dd($ToReturn) ;
     }
 
 
