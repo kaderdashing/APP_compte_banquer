@@ -99,12 +99,24 @@ class DepenseController extends Controller
                              ->get();
     
         $sommeParCategorie = [];
-    
+      
         foreach ($depenses as $depense) {
+           
             $sommeParCategorie[$depense->categorie_id] = $depense->sommePrix;
         }
-    
-         dd($sommeParCategorie);
+        // on recupére les clés de categorie_id modifier aujour'hui
+        $categories_modifier=  array_keys( $sommeParCategorie) ;
+        
+         //on récupére les categorie du user_auth 
+         $user_id = Auth::user()->id;
+         $categories = Categorie::where('user_id', $user_id)
+         ->pluck('id');
+         $categories_auth =$categories->toArray();
+       // l'intersection entre les categorie du user auth et les categorie modifier aujourd'hui
+       //ca donne les categories pour le user modifier aujourd'hui   
+       $intersect=  array_intersect($categories_auth,$categories_modifier);
+       
+         dd($intersect) ;
     }
 
 
