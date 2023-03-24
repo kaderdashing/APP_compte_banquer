@@ -97,7 +97,27 @@ class DepenseController extends Controller
  */
     
 
+public function edit(Depenses $depenses , $id ) 
+{
+    $dateAujourdhui = date('Y-m-d');
+    $categorie = Categorie::find($id);
+    //dd($categorie) ;
+    
+   // $categorie_id=$depense->categorie_id;
+   // $categorie = Categorie::find($categorie_id)->name ;
+  
+   $depenses = Depenses::where('categorie_id', $id) 
+   ->whereDate('created_at', $dateAujourdhui)
+  ->select('nom', 'categorie_id', 'prix' , 'created_at')
+   ->get();
+  
+   $attributes = $depenses->map(function($depense) {
+    return $depense->toArray();
+  });
+  
+  dd($attributes);;
 
+}
 
 
 
