@@ -8,12 +8,30 @@
 
 
 
+
+
+
+
+
+
                 <div>
 
                       <h2 class="text-xl font-semibold text-green-600">{{ item.name }}</h2>
                 </div>
                   <div class="flex items-center">
-                    <p class="text-xl font-semibold mr-5">DA</p>
+
+
+
+
+
+                    <div v-if="item.id in depensesDuJour">
+                      <p class="text-xl font-semibold mr-5">{{ depensesDuJour[item.id] }} DA</p>
+                    </div>
+
+                    <div v-else>
+                      <p class="text-xl font-semibold mr-5">0 DA</p>
+                    </div>
+                   
 
 
                             <Link :href="'/depenses/' + item.id + '/edit'">
@@ -22,7 +40,7 @@
           </div>
         </Link>               
 
-
+      
                   </div>
         
 
@@ -45,6 +63,9 @@
       kader: {
         type: Array,
         required: true
+      },
+      depensesDuJour : {
+        type : Object
       }
     },
     computed: {

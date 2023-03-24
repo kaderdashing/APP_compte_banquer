@@ -1,8 +1,14 @@
 <template>
   <div>
     
-    <realtorForm  :user="user" />
-    <RealtorShow :kader="kader" />
+  
+
+
+
+<RealtorShow
+  :kader="kader"
+  :depenses-du-jour="depensesDuJour"
+/>
     
   </div>
 </template>
@@ -26,6 +32,9 @@ export default {
     user: {
       type: Number,
       required: true
+    },
+    depensesDuJour : {
+      type : Object ,
     }
   },
   mounted() {
