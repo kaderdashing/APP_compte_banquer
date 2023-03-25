@@ -63,6 +63,9 @@ class DepenseController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+
+     /////// a modifier ////////////////////////////////////////// rendre a créé categorie ///////////////
     public function store(Request $request)
     {
       $fields=  $request->validate([
@@ -108,14 +111,18 @@ public function edit(Depenses $depenses , $id )
   
    $depenses = Depenses::where('categorie_id', $id) 
    ->whereDate('created_at', $dateAujourdhui)
-  ->select('nom', 'categorie_id', 'prix' , 'created_at')
+  ->select('id','nom', 'categorie_id', 'prix' , 'created_at')
    ->get();
   
    $attributes = $depenses->map(function($depense) {
     return $depense->toArray();
   });
   
-  dd($attributes);;
+  return inertia(
+    'Realtor/depenses/edit', [
+        'attributes' => $attributes ,
+    ]);
+
 
 }
 

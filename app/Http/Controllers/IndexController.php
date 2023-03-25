@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Hash;
 
 class IndexController extends Controller
 {
+    /////////////////////// a ne pas toucher ////////////////////////////////////////////////////
+
     public function index()
     {
         // Uncomment the code below

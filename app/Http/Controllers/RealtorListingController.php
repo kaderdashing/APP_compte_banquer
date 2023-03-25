@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+/////////////////////// a ne pas toucher ////////////////////////////////////////////////////
 class RealtorListingController extends Controller
 {
     public function __construct()

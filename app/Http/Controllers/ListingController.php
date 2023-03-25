@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 class ListingController extends Controller
 {
+    /////////////////////// a ne pas toucher ////////////////////////////////////////////////////
+
     public function __construct()
     {
         $this->authorizeResource(Listing::class, 'listing');
